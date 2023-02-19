@@ -6,7 +6,7 @@ const NewsPreview = ({item}) => {
         <div>
             <h3>{item.title}</h3>
             <div>
-                <Image src={item.preview} width="150px"/>
+                <Image src={item.preview} width="426px"/>
             </div>
             <small>{item.summary}</small>
         </div>

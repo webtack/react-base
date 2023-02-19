@@ -7,7 +7,7 @@ export const mockNewsCollection = () => {
     for (let i = 0; i < 10; i++) {
         collection.push({
             id: faker.datatype.bigInt(),
-            preview: faker.image.business(),
+            preview: faker.image.business(426, 240),
             title: faker.lorem.sentence(10),
             summary: faker.lorem.sentence(40)
         })
