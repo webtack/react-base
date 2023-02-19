@@ -39,7 +39,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.(jpe?g|png|gif|svg|ico)$/,
+                test: /^\/.*\.(jpe?g|png|gif|svg|ico)$/,
                 type: 'asset/resource',
                 generator: {
                     filename: assetsDir + '/images/[name]-[hash][ext]'
