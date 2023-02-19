@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Box, dividerClasses, Grid, Paper, styled} from '@mui/material'
+import {Box, Button, dividerClasses, Grid, Paper, styled} from '@mui/material'
 import AppNav from '../components/app/AppNav'
 import AppLogo from '@/components/app/AppLogo'
 import {getNewsCollection} from '@/api/news'
@@ -28,6 +28,7 @@ const HomePage = () => {
         >
             <AppLogo/>
             <AppNav/>
+            <Button>Compare font</Button>
         </Grid>
         <Grid
             lg={10}

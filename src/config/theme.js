@@ -14,6 +14,13 @@ export const palette = {
     }
 }
 export default {
+    typography: {
+        "fontFamily": `"Inter", "Helvetica", "Arial", sans-serif`,
+        "fontSize": 14,
+        "fontWeightLight": 300,
+        "fontWeightRegular": 400,
+        "fontWeightMedium": 500
+    },
     breakpoints: {
         values: {
             xs: 0,

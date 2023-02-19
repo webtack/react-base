@@ -1,21 +1,44 @@
-@import '@fontsource/roboto/scss/mixins';
+@import '@fontsource/inter/scss/mixins';
 
-$weights: (100, 300, 400, 500, 700, 900);
+$weightVars: (300, 400, 500, 700);
 
-@each $weight in $weights {
-  @include fontFaceCustom($fontName, $fontId, $style, $display, #{$weight})
+@each $weightVar in $weightVars {
+  @include fontFaceCustom($fontName, $fontId, $style, $display, #{$weightVar})
 }
 
-@include fontFaceCustom('Roboto Thin', $fontId, $style, $display, 100)
-@include fontFaceCustom('Roboto Light', $fontId, $style, $display, 300)
-@include fontFaceCustom('Roboto Regular', $fontId, $style, $display, 400)
-@include fontFaceCustom('Roboto Medium', $fontId, $style, $display, 500)
-@include fontFaceCustom('Roboto Bold', $fontId, $style, $display, 700)
-@include fontFaceCustom('Roboto Black', $fontId, $style, $display, 900)
+@mixin fontLight {
+  font-family: $fontName, "Helvetica","Arial",sans-serif;
+  font-weight: 300;
+}
 
-$font-roboto-thin: "Roboto Thin","Helvetica","Arial",sans-serif;
-$font-roboto-light: "Roboto Light","Helvetica","Arial",sans-serif;
-$font-roboto-regular: "Roboto Regular","Helvetica","Arial",sans-serif;
-$font-roboto-medium: "Roboto Medium","Helvetica","Arial",sans-serif;
-$font-roboto-bold: "Roboto Bold","Helvetica","Arial",sans-serif;
-$font-roboto-black: "Roboto Black","Helvetica","Arial",sans-serif;
+@mixin fontRegular {
+  font-family: $fontName, "Helvetica","Arial",sans-serif;
+  font-weight: 400;
+}
+
+@mixin fontMedium {
+  font-family: $fontName, "Helvetica","Arial",sans-serif;
+  font-weight: 500;
+}
+
+@mixin fontBold {
+  font-family: $fontName, "Helvetica","Arial",sans-serif;
+  font-weight: 700;
+}
+
+
+.font-light {
+  @include fontLight;
+}
+
+.font-regular {
+  @include fontRegular;
+}
+
+.font-medium {
+  @include fontMedium;
+}
+
+.font-bold {
+  @include fontBold;
+}
