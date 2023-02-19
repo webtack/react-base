@@ -8,8 +8,8 @@ export const mockNewsCollection = () => {
         collection.push({
             id: faker.datatype.bigInt(),
             preview: faker.image.business(),
-            title: faker.lorem.words(10),
-            summary: faker.lorem.words(40)
+            title: faker.lorem.sentence(10),
+            summary: faker.lorem.sentence(40)
         })
     }
 
@@ -25,6 +25,6 @@ export const getNewsCollection = (params) => {
                 success: 1,
                 data: mockData
             });
-        }, 100);
+        }, 2000);
     })
 }
