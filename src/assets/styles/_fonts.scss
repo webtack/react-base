@@ -1,23 +1,21 @@
-@import '../../../node_modules/@fontsource/roboto/scss/mixins';
+@import '@fontsource/roboto/scss/mixins';
 
-@include fontFaceCustom($fontName, $fontId, $style, $display, 100)
-@include fontFaceCustom($fontName, $fontId, $style, $display, 300)
-@include fontFaceCustom($fontName, $fontId, $style, $display, 400)
-@include fontFaceCustom($fontName, $fontId, $style, $display, 500)
-@include fontFaceCustom($fontName, $fontId, $style, $display, 700)
-@include fontFaceCustom($fontName, $fontId, $style, $display, 900)
+$weights: (100, 300, 400, 500, 700, 900);
 
+@each $weight in $weights {
+  @include fontFaceCustom($fontName, $fontId, $style, $display, #{$weight})
+}
 
-@include fontFaceCustom('RobotoThin', $fontId, $style, $display, 100)
-@include fontFaceCustom('RobotoLight', $fontId, $style, $display, 300)
-@include fontFaceCustom('RobotoRegular', $fontId, $style, $display, 400)
-@include fontFaceCustom('RobotoMedium', $fontId, $style, $display, 500)
-@include fontFaceCustom('RobotoBold', $fontId, $style, $display, 700)
-@include fontFaceCustom('RobotoBlack', $fontId, $style, $display, 900)
+@include fontFaceCustom('Roboto Thin', $fontId, $style, $display, 100)
+@include fontFaceCustom('Roboto Light', $fontId, $style, $display, 300)
+@include fontFaceCustom('Roboto Regular', $fontId, $style, $display, 400)
+@include fontFaceCustom('Roboto Medium', $fontId, $style, $display, 500)
+@include fontFaceCustom('Roboto Bold', $fontId, $style, $display, 700)
+@include fontFaceCustom('Roboto Black', $fontId, $style, $display, 900)
 
-$font-roboto-thin: "RobotoThin","Helvetica","Arial",sans-serif;
-$font-roboto-light: "RobotoLight","Helvetica","Arial",sans-serif;
-$font-roboto-regular: "RobotoRegular","Helvetica","Arial",sans-serif;
-$font-roboto-medium: "RobotoMedium","Helvetica","Arial",sans-serif;
-$font-roboto-bold: "RobotoBold","Helvetica","Arial",sans-serif;
-$font-roboto-black: "RobotoBlack","Helvetica","Arial",sans-serif;
+$font-roboto-thin: "Roboto Thin","Helvetica","Arial",sans-serif;
+$font-roboto-light: "Roboto Light","Helvetica","Arial",sans-serif;
+$font-roboto-regular: "Roboto Regular","Helvetica","Arial",sans-serif;
+$font-roboto-medium: "Roboto Medium","Helvetica","Arial",sans-serif;
+$font-roboto-bold: "Roboto Bold","Helvetica","Arial",sans-serif;
+$font-roboto-black: "Roboto Black","Helvetica","Arial",sans-serif;
