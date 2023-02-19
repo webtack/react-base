@@ -6,39 +6,22 @@ $weightVars: (300, 400, 500, 700);
   @include fontFaceCustom($fontName, $fontId, $style, $display, #{$weightVar})
 }
 
-@mixin fontLight {
-  font-family: $fontName, "Helvetica","Arial",sans-serif;
-  font-weight: 300;
-}
-
-@mixin fontRegular {
+.font-light {
   font-family: $fontName, "Helvetica","Arial",sans-serif;
   font-weight: 400;
 }
 
-@mixin fontMedium {
+.font-regular {
+  font-family: $fontName, "Helvetica","Arial",sans-serif;
+  font-weight: 400;
+}
+
+.font-medium {
   font-family: $fontName, "Helvetica","Arial",sans-serif;
   font-weight: 500;
 }
 
-@mixin fontBold {
+.font-bold {
   font-family: $fontName, "Helvetica","Arial",sans-serif;
   font-weight: 700;
-}
-
-
-.font-light {
-  @include fontLight;
-}
-
-.font-regular {
-  @include fontRegular;
-}
-
-.font-medium {
-  @include fontMedium;
-}
-
-.font-bold {
-  @include fontBold;
 }
