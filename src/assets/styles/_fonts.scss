@@ -1,4 +1,4 @@
-@import '@fontsource/roboto/scss/mixins';
+@import '../../../node_modules/@fontsource/roboto/scss/mixins';
 
 @include fontFaceCustom($fontName, $fontId, $style, $display, 100)
 @include fontFaceCustom($fontName, $fontId, $style, $display, 300)
