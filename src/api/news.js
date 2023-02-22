@@ -9,7 +9,8 @@ export const mockNewsCollection = () => {
             id: faker.datatype.bigInt(),
             preview: faker.image.business(426, 240),
             title: faker.lorem.sentence(10),
-            summary: faker.lorem.sentence(40)
+            summary: faker.lorem.sentence(40),
+            createdAt: Date.now()
         })
     }
 
