@@ -3,7 +3,7 @@ import React from 'react'
 const Image = ({src, width, height, alt}) => {
     const isAbsolutePath = src.startsWith('blob:') || src.startsWith('http')
 
-    src = isAbsolutePath ? src : require('@/assets/images/' + src)
+    src = isAbsolutePath ? src : require('@/assets/' + src)
     width = width || '24px'
     height = height || 'auto'
 

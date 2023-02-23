@@ -1,76 +1,63 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const TerserWebpackPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const miniCss = require('mini-css-extract-plugin')
 // const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 const distDir = path.resolve(__dirname, 'dist')
 const srcDir = path.resolve(__dirname, 'src')
-const srcIndex = path.resolve(srcDir, 'main.js')
 const publicDir = path.resolve(__dirname, 'public')
 const publicIndex = path.resolve(publicDir, 'index.html')
 const assetsDir = 'assets'
 
 const mode = process.env.NODE_ENV
-const isDevelopmentMode = mode === 'development'
+const isDevelopmentMode = mode === 'development';
 const isProductionMode = !isDevelopmentMode;
 
-function makeOptimization() {
-    const config = {
-        splitChunks: {
-            chunks: 'all',
-        }
-    };
+function makePerfomance() {
+    if(isDevelopmentMode) return undefined
 
-    if (isProductionMode) {
-        config.minimizer = [
-            new TerserWebpackPlugin({
-                parallel: true,
-            }),
-            new CssMinimizerPlugin()
-        ]
+    return {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
     }
-
-    return config;
 }
 
-
-
 module.exports = {
-    entry: srcIndex,
+    // Where files should be sent once they are bundled
     output: {
         path: distDir,
         filename: '[name].js',
         chunkFilename: '[name].bundle.js',
     },
+    entry: srcDir + '/main.js',
     mode,
     target: 'web',
-    optimization: makeOptimization(),
+    devtool: isDevelopmentMode ? 'inline-source-map' : 'source-map',
     devServer: {
         port: 3000,
         open: false,
         hot: true,
         liveReload: true,
-        compress: true,
         static: {
             directory: publicDir
         },
     },
+    performance: makePerfomance(),
     module: {
         rules: [
             {
                 test: /\.(woff|woff2|ttf|otf|eot)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: assetsDir + '/fonts/[name][ext]'
+                    filename: 'fonts/[name][ext]'
                 }
             },
             {
-                test: /^\/.*\.(jpe?g|png|gif|svg|ico)$/,
+                test: /\.(jpe?g|png|gif|svg|ico)$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: assetsDir + '/images/[name]-[hash][ext]'
+                    filename: assetsDir + '/[name].[hash][ext]'
                 },
                 parser: { dataUrlCondition: { maxSize: 15000 } }
             },
@@ -82,21 +69,28 @@ module.exports = {
                 }
             },
             {
-                test:/\.(s*)css$/i,
-                include: srcDir,
-                exclude: /node_modules/,
+                test:/\.(s*)css$/,
+                generator: {
+                    filename: '[name].[hash][ext]'
+                },
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: miniCss.loader,
+                        options: {
+                            esModule: false,
+                        },
                     },
                     {
                         loader: 'css-loader'
                     },
                     {
                         loader: 'sass-loader'
-                    }
+                    },
                 ]
-            },
+            }
         ]
     },
     plugins: [
@@ -111,14 +105,11 @@ module.exports = {
                 useShortDoctype: isProductionMode,
             },
         }),
-        new MiniCssExtractPlugin({
-            filename: `app.[hash].css`,
-            // chunkFilename: '[id].css'
+        new miniCss({
+            filename: 'app.[hash].css',
         })
     ],
-    devtool: 'source-map',
     resolve: {
-        extensions: ['.js', '.jsx', '.css', '.jpg', '.png', '.svg', '.json'],
         alias: {
             '@': srcDir
         }
