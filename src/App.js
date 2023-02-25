@@ -1,10 +1,8 @@
 import React from 'react'
-import '@/assets/styles/app.scss'
+import '@/styles/app.scss'
 
-import {
-    BrowserRouter,
-    createBrowserRouter, Route, Router,
-    RouterProvider, Routes
+import {createBrowserRouter,
+    RouterProvider
 } from 'react-router-dom'
 import {publicRoutes} from '@/router'
 import AppRoot from '@/components/app/AppRoot'

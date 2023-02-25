@@ -1,5 +1,6 @@
 import React from 'react'
 import NewsPreview from '@/components/news/NewsPreview'
+import PropTypes from 'prop-types'
 
 const NewsList = ({items, title}) => {
     return (
@@ -17,6 +18,15 @@ const NewsList = ({items, title}) => {
             </div>
         </div>
     )
+}
+
+NewsList.defaultProps = {
+    items: []
+}
+
+NewsList.propTypes = {
+    items: PropTypes.array,
+    title: PropTypes.string
 }
 
 export default NewsList

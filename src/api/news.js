@@ -19,8 +19,8 @@ export const mockNewsCollection = () => {
 
 const mockData = mockNewsCollection()
 
-export const getNewsCollection = (params) => {
-    return new Promise((resolve, reject) => {
+export const getNewsCollection = () => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             resolve({
                 success: 1,

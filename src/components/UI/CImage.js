@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Image = ({src, width, height, alt}) => {
+const CImage = ({src, width, height, alt}) => {
     const isAbsolutePath = src.startsWith('blob:') || src.startsWith('http')
 
     src = isAbsolutePath ? src : require('@/assets/' + src)
@@ -17,4 +17,11 @@ const Image = ({src, width, height, alt}) => {
     )
 }
 
-export default Image
+// CImage.propTypes = {
+//     src: PropTypes.string.isRequired,
+//     width: PropTypes.string,
+//     height: PropTypes.string,
+//     alt: PropTypes.string
+// }
+
+export default CImage

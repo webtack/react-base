@@ -1,5 +1,6 @@
 import React from 'react'
-import Image from '@/components/ui/Image'
+import Image from '@/components/UI/CImage'
+import PropTypes from 'prop-types'
 
 const NewsPreview = ({item}) => {
     return (
@@ -11,6 +12,10 @@ const NewsPreview = ({item}) => {
             <small>{item.summary}</small>
         </div>
     )
+}
+
+NewsPreview.propTypes = {
+    item: PropTypes.object
 }
 
 export default NewsPreview

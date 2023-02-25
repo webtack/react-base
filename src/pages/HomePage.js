@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Box, Button, dividerClasses, Grid, Paper, styled} from '@mui/material'
+import {Button, Grid} from '@mui/material'
 import AppNav from '../components/app/AppNav'
 import AppLogo from '@/components/app/AppLogo'
 import {getNewsCollection} from '@/api/news'

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React from 'react'
 import {Container, createTheme, CssBaseline, ThemeProvider} from '@mui/material'
 import themeConfig from '@/config/theme'
 import {Outlet} from 'react-router-dom'
