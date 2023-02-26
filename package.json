@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server ./src/main.js  --mode development --history-api-fallback",
-    "build": "webpack ./src/main.js --mode production"
+    "dev": "webpack-dev-server --mode development --history-api-fallback",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",

@@ -18,6 +18,7 @@ const isDevelopmentMode = mode === 'development'
 const isProductionMode = !isDevelopmentMode
 
 const staticRegexp = /\.(jpe?g|png|gif|svg|ico)$/
+const fontRegexp = /\.(woff|woff2|ttf|otf|eot)$/
 
 function makePerformance() {
     if(isDevelopmentMode) return undefined
@@ -73,10 +74,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(woff|woff2|ttf|otf|eot)$/,
+                test: fontRegexp,
                 type: 'asset/resource',
                 generator: {
-                    filename: 'fonts/[name][ext]'
+                    filename: content => {
+                        let filename = content.filename
+                        filename = filename.replace('node_modules', 'fonts')
+                        filename = filename.replace('@', '')
+
+                        return filename
+                    }
                 }
             },
             {
